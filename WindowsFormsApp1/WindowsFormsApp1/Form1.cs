@@ -16,5 +16,43 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
+        {
+
+        }
+        string name, path;
+        private void btn_music_play_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "mp3 files (*.mp3)|*.mp3";
+            open.Multiselect = true;
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                name = open.SafeFileName;
+                path = open.FileName;
+
+                musicName.Text = name;
+
+                axWindowsMediaPlayer1.URL = path;
+
+            }
+
+
+        }
+
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
